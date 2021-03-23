@@ -8,11 +8,11 @@ version = "3.2.0"
 
 [[AdaptiveResonance]]
 deps = ["Distributed", "LinearAlgebra", "Logging", "MLJ", "Parameters", "Printf", "ProgressBars", "Revise", "SharedArrays", "Statistics"]
-git-tree-sha1 = "6e3a077985c432d383ec5107c04e44b730a14582"
+git-tree-sha1 = "1208fce2b8a6c73bc62fe04062068d9d6d596d12"
 repo-rev = "master"
 repo-url = "https://github.com/AP6YC/AdaptiveResonance.jl"
 uuid = "3d72adc0-63d3-4141-bf9b-84450dd0395b"
-version = "0.1.1"
+version = "0.1.2"
 
 [[Artifacts]]
 deps = ["Pkg"]
@@ -643,9 +643,9 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
 [[ProgressBars]]
 deps = ["Printf"]
-git-tree-sha1 = "b25377c38da4181e99832328a240c73f3d57fff2"
+git-tree-sha1 = "e9fcd6cca9b115e494bd02e379d3d2fc54b2452f"
 uuid = "49802e3a-d2f1-5c88-81d8-b72133a6f568"
-version = "1.0.0"
+version = "0.8.0"
 
 [[ProgressMeter]]
 deps = ["Distributed", "Printf"]

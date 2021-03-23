@@ -19,6 +19,7 @@ using AdaptiveResonance
 using Revise
 using ProgressBars
 using Logging
+using Plots
 
 # --------------------------------------------------------------------------- #
 # CONFIGURATION
@@ -27,8 +28,12 @@ using Logging
 # Set the log level
 LogLevel(Logging.Info)
 
+# Plotting style
+# pyplot()
+theme(:dark)
+
 # Load the examples helper functions
-include("../example_functions.jl")
+include("../common.jl")
 
 # Load the trainig data
 train_x, train_y = get_cvi_data("data/correct_partition.csv")
@@ -98,4 +103,10 @@ end
 # Show the last criterion value
 @info "Incremental CVI value: $(cvi_i.criterion_value)"
 @info "Batch CVI value: $(cvi_b.criterion_value)"
-@info "Porcelain Incremental CVI value: $(criterion_values[end])"
+@info "Porcelain Incremental CVI value: $(criterion_values_p[end])"
+
+# Plot
+p = plot(1:n_samples, criterion_values_i, title="DB CVI")
+plot!(p, 1:n_samples, criterion_values_p)
+xlabel!("Sample Index")
+ylabel!("CVI")
