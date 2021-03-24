@@ -1,3 +1,16 @@
+"""
+    xb.jl
+
+Description:
+    Example usage of the Xie-Beni CVI/ICVI.
+
+Author:
+    Sasha Petrenko <sap625@mst.edu>
+
+Date:
+    3/24/2021
+"""
+
 using AdaptiveResonance
 using Logging
 
@@ -5,7 +18,7 @@ using Logging
 LogLevel(Logging.Info)
 
 # Load the examples helper functions
-include("../example_functions.jl")
+include("../common.jl")
 
 # Load the trainig data
 train_x, train_y = get_cvi_data("data/correct_partition.csv")

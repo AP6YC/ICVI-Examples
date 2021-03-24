@@ -643,9 +643,9 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
 [[ProgressBars]]
 deps = ["Printf"]
-git-tree-sha1 = "e9fcd6cca9b115e494bd02e379d3d2fc54b2452f"
+git-tree-sha1 = "b25377c38da4181e99832328a240c73f3d57fff2"
 uuid = "49802e3a-d2f1-5c88-81d8-b72133a6f568"
-version = "0.8.0"
+version = "1.0.0"
 
 [[ProgressMeter]]
 deps = ["Distributed", "Printf"]

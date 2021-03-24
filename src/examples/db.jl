@@ -2,10 +2,13 @@
     db.jl
 
 Description:
-    Example usage of the Davies-Bouldin ICVI.
+    Example usage of the Davies-Bouldin CVI/ICVI.
 
 Author:
     Sasha Petrenko <sap625@mst.edu>
+
+Date:
+    3/24/2021
 """
 
 # --------------------------------------------------------------------------- #
@@ -31,12 +34,13 @@ LogLevel(Logging.Info)
 # Plotting style
 # pyplot()
 theme(:dark)
-
+@info pwd()
 # Load the examples helper functions
 include("../common.jl")
 
 # Load the trainig data
-train_x, train_y = get_cvi_data("data/correct_partition.csv")
+data_path = "data/correct_partition.csv"
+train_x, train_y = get_cvi_data(data_path)
 n_samples = length(train_y)
 
 # --------------------------------------------------------------------------- #
