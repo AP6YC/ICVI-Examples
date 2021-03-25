@@ -1,6 +1,5 @@
 # ICVI-Examples
 
-
 | **Build Status** | **Coverage** |
 |:----------------:|:------------:|
 | [![Build Status][ci-img]][ci-url] [![Build Status][appveyor-img]][appveyor-url] | [![Codecov][codecov-img]][codecov-url] [![Coveralls][coveralls-img]][coveralls-url] |
@@ -11,11 +10,11 @@
 [appveyor-img]: https://ci.appveyor.com/api/projects/status/github/AP6YC/ICVI-Examples?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/AP6YC/ICVI-Examples
 
-[codecov-img]: https://codecov.io/gh/AP6YC/ICVI-Examples/branch/master/graph/badge.svg
+[codecov-img]: https://codecov.io/gh/AP6YC/ICVI-Examples/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/AP6YC/ICVI-Examples
 
-[coveralls-img]: https://coveralls.io/repos/github/AP6YC/ICVI-Examples/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/AP6YC/ICVI-Examples?branch=master
+[coveralls-img]: https://coveralls.io/repos/github/AP6YC/ICVI-Examples/badge.svg?branch=main
+[coveralls-url]: https://coveralls.io/github/AP6YC/ICVI-Examples?branch=main
 
 Example usage of the Incremental Cluster Validity Indices (ICVI) implemented in the AdaptiveResonance.jl julia package.
 
