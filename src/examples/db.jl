@@ -30,7 +30,9 @@ using Plots
 # --------------------------------------------------------------------------- #
 
 # Location of the data
-data_path = "data/correct_partition.csv"
+# data_path = "data/correct_partition.csv"
+data_path = "data/over_partition.csv"
+# data_path = "data/under_partition.csv"
 
 # Plotting dots-per-inch
 dpi = 300
@@ -52,8 +54,11 @@ LogLevel(Logging.Info)
 include("../common.jl")
 
 # Load the training data
-train_x, train_y = get_cvi_data(data_path)
-n_samples = length(train_y)
+data, labels = get_cvi_data(data_path)
+labels = relabel_cvi_data(labels)
+
+# Get the number of samples for incremental iteration
+n_samples = length(labels)
 
 # --------------------------------------------------------------------------- #
 # INCREMENTAL MODE
@@ -70,7 +75,7 @@ criterion_values_i = zeros(n_samples)
 for ix = ProgressBar(1:n_samples)
     # Update the CVI internal parameters incrementally
     # NOTE: the package assumes that columns are features and rows are samples
-    param_inc!(cvi_i, train_x[:, ix], train_y[ix])
+    param_inc!(cvi_i, data[:, ix], labels[ix])
     # Evaluate the CVI to internally store the criterion value
     evaluate!(cvi_i)
     # Extract and save the criterion value at each step
@@ -86,7 +91,7 @@ end
 cvi_b = DB()
 
 # Compute the parameters in batch
-param_batch!(cvi_b, train_x, train_y)
+param_batch!(cvi_b, data, labels)
 
 # Evaluate the CVI criterion value
 evaluate!(cvi_b)
@@ -109,7 +114,7 @@ criterion_values_p = zeros(n_samples)
 for ix = ProgressBar(1:n_samples)
     # Update the CVI parameters and extract the criterion value in one function
     # NOTE: the package assumes that columns are features and rows are samples
-    criterion_values_p[ix] = get_icvi!(cvi_p, train_x[:, ix], train_y[ix])
+    criterion_values_p[ix] = get_icvi!(cvi_p, data[:, ix], labels[ix])
 end
 
 # --------------------------------------------------------------------------- #

@@ -69,11 +69,11 @@ for data_path in data_paths
     @info "------- Testing data path: $data_path -------"
     # Load the training data
     data, labels = get_cvi_data(data_path)
-    # Sort it into sequential order
-    data, labels = sort_cvi_data(data, labels)
+    # Relabel it into sequential order
+    labels = relabel_cvi_data(labels)
     # Iterate across all CVIs
     for cvi in cvis
         @info "------- Testing CVI: $cvi -------"
-        test_cvi(cvi(), data, labels)
+        test_cvi(cvi(), data, labels, basename(data_path))
     end
 end

@@ -87,7 +87,7 @@ You may repeat previously seen label indices, but skipping label indices (e.g., 
 In this project, this is ameliorated with the function
 
 ```julia
-sort_cvi_data(data::Array{N, 2}, labels::Array{M, 1}) where {N<:Real, M<:Int}
+relabel_cvi_data(labels::Array{M, 1}) where {M<:Int}
 ```
 
 For example,
@@ -95,8 +95,16 @@ For example,
 ```julia
 data_file = "path/to/data.csv"
 data, labels = get_cvi_data(data_file)
-data, labels = sort_cvi_data(data, labels)
+labels = relabel_cvi_data(labels)
 ```
+
+Alternatively, you may pairwise sort the entirety of the data with
+
+```julia
+sort_cvi_data(data::Array{N, 2}, labels::Array{M, 1}) where {N<:Real, M<:Int}
+```
+
+**NOTE*** `sort_cvi_data` reorders the input data as well, which will lead to different ICVI results than with `relabel_cvi_data`.
 
 ### Instantiation
 
