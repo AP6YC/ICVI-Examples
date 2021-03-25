@@ -14,6 +14,7 @@ LogLevel(Logging.Info)
     @info "Switching working directory to top for running scripts" pwd()
 
     # Run scripts
+    include("../src/examples/combined.jl")
     include("../src/examples/db.jl")
     include("../src/examples/ps.jl")
     include("../src/examples/xb.jl")
