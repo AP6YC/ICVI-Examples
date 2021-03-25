@@ -24,7 +24,11 @@ using ProgressBars
 using Logging
 using Plots
 
+"""
+    test_cvi(cvi::C, data::Array{M, 2}, labels::Array{N, 1}) where {C<:AbstractCVI, M<:Real, N<:Int}
 
+Test the CVI on the data and labels in all configurations (incremental, batch, porcelain).
+"""
 function test_cvi(cvi::C, data::Array{M, 2}, labels::Array{N, 1}) where {C<:AbstractCVI, M<:Real, N<:Int}
     n_samples = length(labels)
 
@@ -69,7 +73,7 @@ function test_cvi(cvi::C, data::Array{M, 2}, labels::Array{N, 1}) where {C<:Abst
 
     # ----------------------------------------------------------------------- #
     # INCREMENTAL MODE: PORCELAIN FUNCTIONS
-    #   Update and get the CVI at once with the porcelain functions
+    #   Update and get the ICVI at once with the porcelain functions
     # ----------------------------------------------------------------------- #
 
     # Instantiate the CVI as both in incremental and batch modes
@@ -86,6 +90,17 @@ function test_cvi(cvi::C, data::Array{M, 2}, labels::Array{N, 1}) where {C<:Abst
     end
 
     # ----------------------------------------------------------------------- #
+    # BATCH MODE: PORCELAIN FUNCTIONS
+    #   Update and get the CVI at once with the porcelain functions
+    # ----------------------------------------------------------------------- #
+
+    # Instantiate the CVI as both in incremental and batch modes
+    cvi_pb = deepcopy(cvi)
+
+    # Iterate across all samples
+    criterion_value_pb = get_cvi!(cvi_pb, data, labels)
+
+    # ----------------------------------------------------------------------- #
     # VISUALIZATION
     # ----------------------------------------------------------------------- #
 
@@ -93,6 +108,7 @@ function test_cvi(cvi::C, data::Array{M, 2}, labels::Array{N, 1}) where {C<:Abst
     @info "Incremental CVI value: $(cvi_i.criterion_value)"
     @info "Batch CVI value: $(cvi_b.criterion_value)"
     @info "Porcelain Incremental CVI value: $(criterion_values_p[end])"
+    @info "Porcelain Batch CVI value: $(criterion_value_pb)"
 
     # Plot the two incremental trends ("manual" and porcelain) atop one another
     p = plot(dpi=dpi, reuse=false)

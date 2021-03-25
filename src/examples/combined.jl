@@ -66,13 +66,14 @@ n_cvis = length(cvis)
 
 # Iterate across all the data
 for data_path in data_paths
-    @info "Testing data path: $data_path"
+    @info "------- Testing data path: $data_path -------"
     # Load the training data
     data, labels = get_cvi_data(data_path)
+    # Sort it into sequential order
     data, labels = sort_cvi_data(data, labels)
     # Iterate across all CVIs
     for cvi in cvis
-        @info "Testing CVI: $(typeof(cvi))"
+        @info "------- Testing CVI: $cvi -------"
         test_cvi(cvi(), data, labels)
     end
 end

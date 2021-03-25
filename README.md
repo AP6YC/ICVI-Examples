@@ -82,6 +82,22 @@ data = load_data()
 dim, n_samples = size(data)
 ```
 
+**NOTE**: As of AdaptiveResonance.jl v0.1.3, all the CVIs assume that the labels are presented sequentially initially, starting with index 1 (e.g., 1, 1, 2, 2, 3, 2, 2, 1, 3, 4, 4 ...).
+You may repeat previously seen label indices, but skipping label indices (e.g., 1, 2, 4) results in undefined behavior.
+In this project, this is ameliorated with the function
+
+```julia
+sort_cvi_data(data::Array{N, 2}, labels::Array{M, 1}) where {N<:Real, M<:Int}
+```
+
+For example,
+
+```julia
+data_file = "path/to/data.csv"
+data, labels = get_cvi_data(data_file)
+data, labels = sort_cvi_data(data, labels)
+```
+
 ### Instantiation
 
 The names of each CVI are capital abbreviations of their literature names, often based upon the surname of the principal authors of the papers that introduce the metrics.
@@ -121,7 +137,7 @@ They both compute their most recent criterion values with
 evaluate!(...)
 ```
 
-NOTE: Any CVI can switch to be updated incrementally or in batch, as the CVI data structs are update mode agnostic.
+**NOTE**: Any CVI can switch to be updated incrementally or in batch, as the CVI data structs are update mode agnostic.
 
 ### Updating
 
@@ -156,6 +172,7 @@ dim, n_samples = size(data)
 then update the parameters incrementally with
 
 ```julia
+# Iterate over all samples
 for ix = 1:n_samples
     sample = data[:, ix]
     label = labels[ix]
