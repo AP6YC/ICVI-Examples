@@ -25,21 +25,33 @@ using Logging
 using Plots
 
 # --------------------------------------------------------------------------- #
-# CONFIGURATION
+# USER CONFIGURATION
+#   The user config, such as data paths and plotting parameters
+# --------------------------------------------------------------------------- #
+
+# Location of the data
+data_path = "data/correct_partition.csv"
+
+# Plotting dots-per-inch
+dpi = 300
+
+# Plotting style
+theme(:dark)
+
+# Plotting backend
+# pyplot()      # Install PyPlot to use this backend as an alternative
+
+# --------------------------------------------------------------------------- #
+# SCRIPT CONFIGURATION
 # --------------------------------------------------------------------------- #
 
 # Set the log level
 LogLevel(Logging.Info)
 
-# Plotting style
-# pyplot()
-theme(:dark)
-@info pwd()
 # Load the examples helper functions
 include("../common.jl")
 
-# Load the trainig data
-data_path = "data/correct_partition.csv"
+# Load the training data
 train_x, train_y = get_cvi_data(data_path)
 n_samples = length(train_y)
 
@@ -109,8 +121,11 @@ end
 @info "Batch CVI value: $(cvi_b.criterion_value)"
 @info "Porcelain Incremental CVI value: $(criterion_values_p[end])"
 
-# Plot
-p = plot(1:n_samples, criterion_values_i, title="DB CVI")
+# Plot the two incremental trends ("manual" and porcelain) atop one another
+p = plot(dpi=dpi)
+plot!(p, 1:n_samples, criterion_values_i)
 plot!(p, 1:n_samples, criterion_values_p)
+title!("DB CVI")
 xlabel!("Sample Index")
-ylabel!("CVI")
+ylabel!("Criterion Value")
+display(p)

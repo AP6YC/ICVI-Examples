@@ -11,7 +11,7 @@ LogLevel(Logging.Info)
     # relative to themselves, not relative to the test dir
     @info "Test directory" pwd()
     cd("../")
-    @info "Switching working directory to top" pwd()
+    @info "Switching working directory to top for running scripts" pwd()
 
     # Run scripts
     include("../src/examples/db.jl")

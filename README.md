@@ -1,5 +1,22 @@
 # ICVI-Examples
 
+
+| **Build Status** | **Coverage** |
+|:----------------:|:------------:|
+| [![Build Status][ci-img]][ci-url] [![Build Status][appveyor-img]][appveyor-url] | [![Codecov][codecov-img]][codecov-url] [![Coveralls][coveralls-img]][coveralls-url] |
+
+[ci-img]: https://github.com/AP6YC/ICVI-Examples/workflows/CI/badge.svg
+[ci-url]: https://github.com/AP6YC/ICVI-Examples/actions?query=workflow%3ACI
+
+[appveyor-img]: https://ci.appveyor.com/api/projects/status/github/AP6YC/ICVI-Examples?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/AP6YC/ICVI-Examples
+
+[codecov-img]: https://codecov.io/gh/AP6YC/ICVI-Examples/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/AP6YC/ICVI-Examples
+
+[coveralls-img]: https://coveralls.io/repos/github/AP6YC/ICVI-Examples/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/AP6YC/ICVI-Examples?branch=master
+
 Example usage of the Incremental Cluster Validity Indices (ICVI) implemented in the AdaptiveResonance.jl julia package.
 
 This package is developed and maintained by [Sasha Petrenko](https://github.com/AP6YC) with sponsorship by the [Applied Computational Intelligence Laboratory (ACIL)](https://acil.mst.edu/). This project is supported by grants from the [Night Vision Electronic Sensors Directorate](https://c5isr.ccdc.army.mil/inside_c5isr_center/nvesd/), the [DARPA Lifelong Learning Machines (L2M) program](https://www.darpa.mil/program/lifelong-learning-machines), [Teledyne Technologies](http://www.teledyne.com/), and the [National Science Foundation](https://www.nsf.gov/).
