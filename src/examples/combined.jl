@@ -66,7 +66,10 @@ n_cvis = length(cvis)
 
 # Iterate across all the data
 for data_path in data_paths
-    @info "------- Testing data path: $data_path -------"
+    # Get the data_name
+    data_name = splitext(basename(data_path))[1]
+
+    @info "------- Testing data: $data_name -------"
     # Load the training data
     data, labels = get_cvi_data(data_path)
     # Relabel it into sequential order
@@ -74,6 +77,6 @@ for data_path in data_paths
     # Iterate across all CVIs
     for cvi in cvis
         @info "------- Testing CVI: $cvi -------"
-        test_cvi(cvi(), data, labels, basename(data_path))
+        test_cvi(cvi(), data, labels, data_name)
     end
 end

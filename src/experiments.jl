@@ -120,4 +120,7 @@ function test_cvi(cvi::C, data::Array{M, 2}, labels::Array{N, 1}, data_name::Str
     # display(p)
     gui(p)
 
+    # Save the image
+    # savefig("results/single_" * string(typeof(cvi)) * "_" * data_name)
+
 end

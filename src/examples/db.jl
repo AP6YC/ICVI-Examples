@@ -30,8 +30,10 @@ using Plots
 # --------------------------------------------------------------------------- #
 
 # Location of the data
-# data_path = "data/correct_partition.csv"
-data_path = "data/over_partition.csv"
+# NOTE: You can switch between the three partitions here
+#   To see how every CVI does with every partition, run `src/examples/combined.jl`
+data_path = "data/correct_partition.csv"
+# data_path = "data/over_partition.csv"
 # data_path = "data/under_partition.csv"
 
 # Plotting dots-per-inch
@@ -41,7 +43,11 @@ dpi = 300
 theme(:dark)
 
 # Plotting backend
-# pyplot()      # Install PyPlot to use this backend as an alternative
+try
+    pyplot()        # PyPlot backend
+catch
+    gr()            # GR backend (default for Plots.jl)
+end
 
 # --------------------------------------------------------------------------- #
 # SCRIPT CONFIGURATION
@@ -59,6 +65,9 @@ labels = relabel_cvi_data(labels)
 
 # Get the number of samples for incremental iteration
 n_samples = length(labels)
+
+# Get the data_name
+data_name = splitext(basename(data_path))[1]
 
 # --------------------------------------------------------------------------- #
 # INCREMENTAL MODE
@@ -127,10 +136,13 @@ end
 @info "Porcelain Incremental CVI value: $(criterion_values_p[end])"
 
 # Plot the two incremental trends ("manual" and porcelain) atop one another
-p = plot(dpi=dpi)
-plot!(p, 1:n_samples, criterion_values_i)
-plot!(p, 1:n_samples, criterion_values_p)
-title!("DB CVI")
+p = plot(dpi=dpi, legend=:topleft)
+plot!(p, 1:n_samples, criterion_values_i, label="Incremental")
+plot!(p, 1:n_samples, criterion_values_p, label="Porcelain")
+title!("CVI: DB, Data: " * basename(data_path))
 xlabel!("Sample Index")
 ylabel!("Criterion Value")
 display(p)
+
+# Save the image
+savefig("results/single_XB_" * data_name)
