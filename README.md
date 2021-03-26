@@ -26,6 +26,7 @@ The material, findings, and conclusions here do not necessarily reflect the view
 - [ICVI-Examples](#icvi-examples)
   - [Table of Contents](#table-of-contents)
   - [Outline](#outline)
+  - [Quickstart](#quickstart)
   - [Structure](#structure)
   - [Usage](#usage)
     - [Data](#data)
@@ -39,8 +40,36 @@ The material, findings, and conclusions here do not necessarily reflect the view
 ## Outline
 
 This Julia project contains an outline of the conceptual usage of CVIs along with many example scripts.
-[Structure](##Structure) outlines the project file structure, giving context to the locations of every component of the project.
+[Quickstart](##Quickstart) provides an overview of how to use this project, while [Structure](##Structure) outlines the project file structure, giving context to the locations of every component of the project.
 [Usage](##Usage) outlines the general syntax and workflow of the ICVIs, while [Authors](##Authors) gives credit to the author(s).
+
+## Quickstart
+
+This section provides a quick overview of how to use the project.
+For more detailed code usage, please see [Usage](##Usage).
+
+This project has several example scripts to demonstrate the functionality of CVIs in the AdaptiveResonance.jl package.
+In `ICVI-Examples/src/examples/`, the scripts `db.jl`, `ps.jl`, and `xb.jl` demonstrate usage of the Davies-Boudin (DB), Partition Separation (PS), and Xie-Beni (XB) metrics, respectively.
+
+**NOTE** Each of these scripts must be run at the top level of the project to correctly point to the datasets.
+For example, they can be run in the shell with
+
+```sh
+julia src/examples/db.jl
+```
+
+or in a Julia REPL session with
+
+```sh
+include("src/examples/db.jl")
+```
+
+Three preprocessed datasets are provided under `data/` to demonstrate the correct partitioning, over partitioning, and under partitioning of samples by a clustering algorithm to illustrate how the CVIs behave in each case.
+The data consists of 2000 samples of 2-element features with the clustering label appended in the third column.
+You can change which dataset is used in each script above.
+
+Lastly, there is a large experiment script `src/examples/combined.jl` that runs every CVI with all three datasets.
+The common code for all scripts is contained under `src/common.jl`, while the experiment subroutines referenced in these scripts are under `src/experiments.jl`, so feel free to modify them to further explore the behavior and usage of these CVIs.
 
 ## Structure
 
