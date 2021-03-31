@@ -1,4 +1,4 @@
-using AdaptiveResonance
+using ClusterValidityIndices
 using Test
 using Logging
 using Random

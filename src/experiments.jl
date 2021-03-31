@@ -15,8 +15,8 @@ Date:
 # PACKAGES
 # --------------------------------------------------------------------------- #
 
-# ICVIs pulled from the AdaptiveResonance package
-using AdaptiveResonance
+# ICVIs pulled from the ClusterValidityIndices package
+using ClusterValidityIndices
 
 # Quality of life packages for editing and fancy logging
 using Revise

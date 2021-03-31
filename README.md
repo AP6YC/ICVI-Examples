@@ -16,7 +16,7 @@
 [coveralls-img]: https://coveralls.io/repos/github/AP6YC/ICVI-Examples/badge.svg?branch=main
 [coveralls-url]: https://coveralls.io/github/AP6YC/ICVI-Examples?branch=main
 
-Example usage of the Incremental Cluster Validity Indices (ICVI) implemented in the AdaptiveResonance.jl julia package.
+Example usage of the Incremental Cluster Validity Indices (ICVI) implemented in the ClusterValidityIndices.jl julia package.
 
 This package is developed and maintained by [Sasha Petrenko](https://github.com/AP6YC) with sponsorship by the [Applied Computational Intelligence Laboratory (ACIL)](https://acil.mst.edu/). This project is supported by grants from the [Night Vision Electronic Sensors Directorate](https://c5isr.ccdc.army.mil/inside_c5isr_center/nvesd/), the [DARPA Lifelong Learning Machines (L2M) program](https://www.darpa.mil/program/lifelong-learning-machines), [Teledyne Technologies](http://www.teledyne.com/), and the [National Science Foundation](https://www.nsf.gov/).
 The material, findings, and conclusions here do not necessarily reflect the views of these entities.
@@ -48,7 +48,7 @@ This Julia project contains an outline of the conceptual usage of CVIs along wit
 This section provides a quick overview of how to use the project.
 For more detailed code usage, please see [Usage](##Usage).
 
-This project has several example scripts to demonstrate the functionality of CVIs in the AdaptiveResonance.jl package.
+This project has several example scripts to demonstrate the functionality of CVIs in the ClusterValidityIndices.jl package.
 In `ICVI-Examples/src/examples/`, the scripts `db.jl`, `ps.jl`, and `xb.jl` demonstrate usage of the Davies-Boudin (DB), Partition Separation (PS), and Xie-Beni (XB) metrics, respectively.
 
 **NOTE** Each of these scripts must be run at the top level of the project to correctly point to the datasets.
@@ -74,7 +74,7 @@ The common code for all scripts is contained under `src/common.jl`, while the ex
 ## Structure
 
 ```console
-AdaptiveResonance
+ICVI-Examples
 ├── .github/workflows       // GitHub: workflows for testing and documentation.
 ├── data                    // Data: CI and example data location.
 ├── src                     // Source: scripts and common helper functions.
@@ -111,7 +111,7 @@ data = load_data()
 dim, n_samples = size(data)
 ```
 
-**NOTE**: As of AdaptiveResonance.jl v0.1.3, all the CVIs assume that the labels are presented sequentially initially, starting with index 1 (e.g., 1, 1, 2, 2, 3, 2, 2, 1, 3, 4, 4 ...).
+**NOTE**: As of ClusterValidityIndices.jl v0.1.3, all the CVIs assume that the labels are presented sequentially initially, starting with index 1 (e.g., 1, 1, 2, 2, 3, 2, 2, 1, 3, 4, 4 ...).
 You may repeat previously seen label indices, but skipping label indices (e.g., 1, 2, 4) results in undefined behavior.
 In this project, this is ameliorated with the function
 

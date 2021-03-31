@@ -15,8 +15,8 @@ Date:
 # PACKAGES
 # --------------------------------------------------------------------------- #
 
-# ICVIs pulled from the AdaptiveResonance package
-using AdaptiveResonance
+# ICVIs pulled from the ClusterValidityIndices package
+using ClusterValidityIndices
 
 # Quality of life packages for editing and fancy logging
 using Revise
@@ -144,4 +144,4 @@ ylabel!("Criterion Value")
 display(p)
 
 # Save the image
-savefig("results/single_XB_" * data_name)
+savefig("results/single_PS_" * data_name)

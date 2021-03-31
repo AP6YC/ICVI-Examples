@@ -2,14 +2,13 @@ name = "ICVI_Examples"
 uuid = "1b8ba474-16b4-49fb-b3a5-4e0b6d102343"
 keywords = ["ICVI examples"]
 license = "MIT"
-desc = "Example usage of the CVIs in AdaptiveResonance.jl"
+desc = "Example usage of the CVIs in ClusterValidityIndices.jl"
 authors = ["Sasha Petrenko <sap625@mst.edu>"]
 version = "0.1.0"
 
 [deps]
-AdaptiveResonance = "3d72adc0-63d3-4141-bf9b-84450dd0395b"
+ClusterValidityIndices = "2fefd308-f647-4698-a2f0-e90cfcbca9ad"
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
-HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 ProgressBars = "49802e3a-d2f1-5c88-81d8-b72133a6f568"
